@@ -202,10 +202,6 @@ main .display_container .movie_container a .container {
   font-size: 0;
   border: none;
   padding-bottom: 20px;
-  -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.33, 0.04, 0.63, 0.93);
-  transition: -webkit-transform 0.25s cubic-bezier(0.33, 0.04, 0.63, 0.93);
-  transition: transform 0.25s cubic-bezier(0.33, 0.04, 0.63, 0.93);
-  transition: transform 0.25s cubic-bezier(0.33, 0.04, 0.63, 0.93), -webkit-transform 0.25s cubic-bezier(0.33, 0.04, 0.63, 0.93);
 }
 
 main .display_container .movie_container a .container img {
@@ -214,17 +210,21 @@ main .display_container .movie_container a .container img {
   width: 100%;
   border-radius: 8px;
   height: 350px;
+  -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.33, 0.04, 0.63, 0.93);
+  transition: -webkit-transform 0.25s cubic-bezier(0.33, 0.04, 0.63, 0.93);
+  transition: transform 0.25s cubic-bezier(0.33, 0.04, 0.63, 0.93);
+  transition: transform 0.25s cubic-bezier(0.33, 0.04, 0.63, 0.93), -webkit-transform 0.25s cubic-bezier(0.33, 0.04, 0.63, 0.93);
+}
+
+main .display_container .movie_container a .container img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 main .display_container .movie_container a .container h2 {
-  margin-top: 20px;
+  margin-top: 30px;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 600;
-}
-
-main .display_container .movie_container a .container:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
 }
 /*# sourceMappingURL=style.css.map */
