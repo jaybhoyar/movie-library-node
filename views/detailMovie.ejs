@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<hr />
+			<div class="movie_poster">
+				<img src="/uploads/<%= movie.img %>" alt="" />
+			</div>
+			<h2>Title : <%= movie.title %></h2>
+			<h3>Synopsis : <%= movie.synopsis %></h3>
+			<h4>Release Date : <%= movie.releaseDate %></h4>
+			<h5>Rating : <%= movie.rating %></h5>
+			<div class="genre">
+				<span class="genre_title">Genre:</span>
+				<% movie.genre.forEach( eachGenre => { %>
+				<span><%= eachGenre %>| </span>
+				<% }) %>
+			</div>
+			<div class="casts">
+				<span class="casts_title">Casts:</span>
+				<% movie.casts.forEach( eachCast => { %>
+				<span><%= eachCast %> | </span>
+				<% }) %>
+			</div>
+		</div>
+		<div class="button_contianer">
+			<a href="/movies/editMovie/<%= movie.id %>"
+				><button>Edit</button></a
+			>
+			<a href="/movies/delete/<%= movie.id %>"><button>Delete</button></a>
+		</div>
+		<div class="comment_container">
+			<form action="/movies/comments/<%= movie.id %>" method="POST">
+				<input
+					type="text"
+					name="text"
+					placeholder="Add your review here..."
+				/>
+				<input
+					class="submit_button"
+					type="submit"
+					value="Add Comment"
+				/>
+			</form>
+			<% movie.comments.forEach( comment => {%>
+			<p><%= comment.text %></p>
+			<%})%>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+body {
+	padding: 50px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #415057;
+	text-decoration: none;
+}
+a:hover {
+	color: #91aeb6;
+}
+label {
+	display: block;
+	font-size: 18px;
+}
+input {
+	padding: 0.5rem 8px;
+	font-size: 1rem;
+	outline: none;
+	width: 300px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	display: block;
+	margin: 1rem 0;
+}
+button {
+	padding: 8px 12px;
+	background-color: #60cef0;
+	border: none;
+	border-radius: 4px;
+	font-size: 14px;
+	margin-right: 10px;
+	cursor: pointer;
+	outline: none;
+}
+.submit_button {
+	padding: 8px 12px;
+	cursor: pointer;
+	width: fit-content;
+}
+textarea {
+	padding: 0.5rem 8px;
+	font-size: 1rem;
+	outline: none;
+	width: 300px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	display: block;
+	margin: 1rem 0;
+}
+.button_contianer {
+	margin-top: 15px;
+}
+.genre,
+.casts {
+	margin-top: 12px;
+}
+.genre_title,
+.casts_title {
+	color: #0d0d0e;
+	font-weight: bolder;
+}
+.movie_poster {
+	width: 400px;
+}
+img {
+	width: 100%;
+	height: auto;
+}
