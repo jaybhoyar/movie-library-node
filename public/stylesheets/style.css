@@ -196,6 +196,7 @@ main .display_container .movie_container {
 
 main .display_container .movie_container a {
   width: 30%;
+  height: 300px;
 }
 
 main .display_container .movie_container a .container img {
