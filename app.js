@@ -7,7 +7,7 @@ var indexRouter = require("./routes/index");
 var moviesRouter = require("./routes/movie.js");
 const mongoose = require("mongoose");
 var multer = require("multer");
-var upload = multer();
+
 mongoose.connect(
 	"mongodb://localhost/moviedatabase",
 	{ useNewUrlParser: true, useUnifiedTopology: true },

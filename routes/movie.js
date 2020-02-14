@@ -79,7 +79,6 @@ router.get("/delete/:id", (req, res, next) => {
 // Handle Comments
 router.post("/comments/:id", (req, res, next) => {
 	let movieid = req.params.id;
-	console.log("IN COmments: ", movieid);
 	req.body.movieId = movieid;
 	Comment.create(req.body, (err, createdComment) => {
 		if (err) next(err);

@@ -7,14 +7,29 @@
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 	</head>
 	<body>
-		<h1>List of movies</h1>
-		<a href="/movies/new">Create New</a>
-		<div class="container">
-			<% movies.forEach( movie => { %>
-			<a href="/movies/<%= movie.id %>">
-				<h2>🎬 <%= movie.title %></h2>
-			</a>
-			<%})%>
-		</div>
+		<header>
+			<div class="header_container">
+				<div class="icons_container">
+					<img src="/images/movie_night.svg" alt="" />
+					<button class="">Add Movie</button>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div class="display_container">
+				<div class="movie_contianer">
+					<h1>List of movies</h1>
+					<a href="/movies/new">Create New</a>
+					<div class="container">
+						<% movies.forEach( movie => { %>
+
+						<a href="/movies/<%= movie.id %>">
+							<h2>🎬 <%= movie.title %></h2>
+						</a>
+						<%})%>
+					</div>
+				</div>
+			</div>
+		</main>
 	</body>
 </html>
