@@ -138,7 +138,7 @@ a {
 }
 .header_container {
 	width: 100%;
-	border-bottom: 2px solid #009688;
+	// border-bottom: 2px solid #009688;
 	.icons_container {
 		width: 90%;
 		margin: 0 auto;
@@ -165,19 +165,36 @@ a {
 main {
 	.display_container {
 		padding: 30px 0;
-		width: 70%;
+		width: 90%;
 		margin: 0 auto;
 		.movie_container {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-evenly;
 			a {
-				width: 30%;
-				height: 300px;
+				width: 21%;
 				.container {
+					color: #009688;
+					font-size: 0;
+					border: none;
+					padding-bottom: 20px;
+					transition: transform 0.25s
+						cubic-bezier(0.33, 0.04, 0.63, 0.93);
 					img {
+						box-shadow: 0rem 1rem 3rem rgba(0, 0, 0, 0.171);
 						width: 100%;
+						border-radius: 8px;
+						height: 350px;
 					}
+					h2 {
+						margin-top: 20px;
+						text-align: center;
+						font-size: 1.1rem;
+						font-weight: 600;
+					}
+				}
+				.container:hover {
+					transform: scale(1.1);
 				}
 			}
 		}
