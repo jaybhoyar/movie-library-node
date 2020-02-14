@@ -139,6 +139,10 @@ body {
   font-size: 16px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .header_container {
   width: 100%;
   border-bottom: 2px solid #009688;
@@ -163,7 +167,7 @@ body {
   height: 50px;
 }
 
-.header_container .icons_container button {
+.header_container .icons_container a button {
   outline: none;
   font-size: 14px;
   padding: 12px 24px;
@@ -183,8 +187,18 @@ main .display_container .movie_container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+}
+
+main .display_container .movie_container a {
+  width: 30%;
+}
+
+main .display_container .movie_container a .container img {
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

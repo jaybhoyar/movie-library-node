@@ -11,23 +11,23 @@
 			<div class="header_container">
 				<div class="icons_container">
 					<img src="/images/movie_night.svg" alt="" />
-					<button class="">Add Movie</button>
+					<a href="/movies/new">
+						<button class="">Add Movie</button>
+					</a>
 				</div>
 			</div>
 		</header>
 		<main>
 			<div class="display_container">
-				<div class="movie_contianer">
-					<h1>List of movies</h1>
-					<a href="/movies/new">Create New</a>
-					<div class="container">
-						<% movies.forEach( movie => { %>
-
-						<a href="/movies/<%= movie.id %>">
+				<div class="movie_container">
+					<% movies.forEach( movie => { %>
+					<a href="/movies/<%= movie.id %>">
+						<div class="container">
+							<img src="/uploads/<%= movie.img %>" alt="" />
 							<h2>🎬 <%= movie.title %></h2>
-						</a>
-						<%})%>
-					</div>
+						</div>
+					</a>
+					<%})%>
 				</div>
 			</div>
 		</main>
