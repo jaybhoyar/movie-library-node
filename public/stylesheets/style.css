@@ -167,12 +167,13 @@ a {
 }
 
 .header_container .icons_container a button {
+  cursor: pointer;
   outline: none;
   font-size: 14px;
   padding: 12px 24px;
   border: none;
   border-radius: 1.5rem;
-  color: #ececec;
+  color: white;
   background-color: #009688;
 }
 
