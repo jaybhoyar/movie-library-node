@@ -230,34 +230,65 @@ main .display_container .movie_container a .container h2 {
 }
 
 .form_container {
-  padding: 2rem 0;
-}
-
-.form_container h1 {
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #009688;
-  padding: 1.5rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
 }
 
 .form_container .container {
-  padding: 1.5rem;
+  padding: 1rem;
   border: 1px solid #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.form_container .container form label {
-  margin: 0.5rem 0;
+.form_container .container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.form_container .container form .col {
+  padding: 2rem;
+}
+
+.form_container .container form .col label {
   display: block;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
-.form_container .container form input {
+.form_container .container form .col input {
+  display: block;
   padding: 0.6rem 1rem;
   border: none;
-  border-bottom: 0.8px solid #ccc;
+  outline: none;
+  margin-top: 0.8rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #ccc;
   font-size: 1rem;
-  width: 300px;
+  width: 250px;
+}
+
+.form_container .container form .col .submit_button {
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  background-color: #009688;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #fff;
+  border-radius: 6px;
 }
 /*# sourceMappingURL=style.css.map */
