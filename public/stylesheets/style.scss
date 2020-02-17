@@ -219,13 +219,25 @@ main {
 					display: block;
 					font-weight: 600;
 					font-size: 1rem;
+					color: rgb(128, 128, 128);
 				}
 				input {
 					display: block;
 					padding: 0.6rem 1rem;
 					border: none;
 					outline: none;
-					margin-top: 0.8rem;
+					margin-top: 0.5rem;
+					margin-bottom: 1.5rem;
+					border-bottom: 1px solid #ccc;
+					font-size: 1rem;
+					width: 250px;
+				}
+				textarea {
+					display: block;
+					padding: 0.6rem 1rem;
+					border: none;
+					outline: none;
+					margin-top: 0.5rem;
 					margin-bottom: 1.5rem;
 					border-bottom: 1px solid #ccc;
 					font-size: 1rem;
