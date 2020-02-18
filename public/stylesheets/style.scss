@@ -331,7 +331,24 @@ main {
 			font-size: 2rem;
 			text-transform: uppercase;
 			color: #009688;
+			margin: 2rem 0;
+		}
+		h3 {
+			font-size: 1.2rem;
 			margin: 1.5rem 0;
+		}
+		.synopsis {
+			font-size: 1rem;
+			line-height: 1.5;
+			margin: 1rem 0;
+			color: rgb(124, 124, 124);
+		}
+		.release-date {
+			font-style: italic;
+			margin: 1rem 0;
+		}
+		.rating {
+			margin: 1rem 0;
 		}
 	}
 }
