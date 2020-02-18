@@ -10,30 +10,33 @@
 		<div class="detailmovie-container">
 			<div class="movie_poster">
 				<img class="movie-img" src="/uploads/<%= movie.img %>" alt="" />
-      </div>
-      <p class="title"> <%= movie.title %></p>
-      <h3>The Synopsis</h3>
-			<p class="synopsis"><%= movie.synopsis %></p>
-			<p class="release-date"><%= movie.releaseDate %></h4>
-			<p class="rating"> <%= movie.rating %></h5>
-			<div class="genre">
-				<span class="genre_title">Genre:</span>
+			</div>
+			<div class="movie_info">
+				<p class="title"><%= movie.title %></p>
+				<h3>The Synopsis</h3>
+				<p class="synopsis"><%= movie.synopsis %></p>
+				<p class="release-date"><%= movie.releaseDate %></p>
+				<p class="rating"><%= movie.rating %></p>
+				<p class="genre_title">Genre:</p>
 				<% movie.genre.forEach( eachGenre => { %>
 				<span><%= eachGenre %>| </span>
 				<% }) %>
+				<div class="casts">
+					<p class="casts_title">Casts:</p>
+					<% movie.casts.forEach( eachCast => { %>
+					<span><%= eachCast %> | </span>
+					<% }) %>
+				</div>
+
+				<div class="button_contianer">
+					<a href="/movies/editMovie/<%= movie.id %>"
+						><button>Edit</button></a
+					>
+					<a href="/movies/delete/<%= movie.id %>"
+						><button>Delete</button></a
+					>
+				</div>
 			</div>
-			<div class="casts">
-				<span class="casts_title">Casts:</span>
-				<% movie.casts.forEach( eachCast => { %>
-				<span><%= eachCast %> | </span>
-				<% }) %>
-			</div>
-		</div>
-		<div class="button_contianer">
-			<a href="/movies/editMovie/<%= movie.id %>"
-				><button>Edit</button></a
-			>
-			<a href="/movies/delete/<%= movie.id %>"><button>Delete</button></a>
 		</div>
 		<div class="comment_container">
 			<form action="/movies/comments/<%= movie.id %>" method="POST">

@@ -299,7 +299,33 @@ main .display_container .movie_container a .container h2 {
   border-radius: 6px;
 }
 
+.detailmovie-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 5rem;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.detailmovie-container .movie_poster {
+  font-size: 0;
+  width: 30%;
+}
+
 .detailmovie-container .movie_poster .movie-img {
   width: 300px;
+}
+
+.detailmovie-container .movie_info {
+  width: 60%;
+}
+
+.detailmovie-container .movie_info .title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #009688;
+  margin: 1.5rem 0;
 }
 /*# sourceMappingURL=style.css.map */
