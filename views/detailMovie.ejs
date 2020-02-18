@@ -7,14 +7,15 @@
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 	</head>
 	<body>
-		<div class="container">
+		<div class="detailmovie-container">
 			<div class="movie_poster">
-				<img src="/uploads/<%= movie.img %>" alt="" />
-			</div>
-			<h2>Title : <%= movie.title %></h2>
-			<h3>Synopsis : <%= movie.synopsis %></h3>
-			<h4>Release Date : <%= movie.releaseDate %></h4>
-			<h5>Rating : <%= movie.rating %></h5>
+				<img class="movie-img" src="/uploads/<%= movie.img %>" alt="" />
+      </div>
+      <p class="title"> <%= movie.title %></p>
+      <h3>The Synopsis</h3>
+			<p class="synopsis"><%= movie.synopsis %></p>
+			<p class="release-date"><%= movie.releaseDate %></h4>
+			<p class="rating"> <%= movie.rating %></h5>
 			<div class="genre">
 				<span class="genre_title">Genre:</span>
 				<% movie.genre.forEach( eachGenre => { %>

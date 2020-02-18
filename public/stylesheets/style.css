@@ -284,6 +284,10 @@ main .display_container .movie_container a .container h2 {
   width: 250px;
 }
 
+.form_container .container form .col input:focus {
+  border-bottom: 1.5px solid #009688;
+}
+
 .form_container .container form .col .submit_button {
   padding: 0.8rem 1.5rem;
   cursor: pointer;
@@ -293,5 +297,9 @@ main .display_container .movie_container a .container h2 {
   width: fit-content;
   color: #fff;
   border-radius: 6px;
+}
+
+.detailmovie-container .movie_poster .movie-img {
+  width: 300px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -234,6 +234,9 @@ main {
 					font-size: 1rem;
 					width: 250px;
 				}
+				input:focus {
+					border-bottom: 1.5px solid #009688;
+				}
 				.submit_button {
 					padding: 0.8rem 1.5rem;
 					cursor: pointer;
@@ -311,3 +314,10 @@ main {
 // 	width: 100%;
 // 	height: auto;
 // }
+.detailmovie-container {
+	.movie_poster {
+		.movie-img {
+			width: 300px;
+		}
+	}
+}
