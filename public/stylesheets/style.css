@@ -344,6 +344,7 @@ main .display_container .movie_container a .container h2 {
 .detailmovie-container .movie_info .release-date {
   font-style: italic;
   margin: 1.5rem 0;
+  color: #7c7c7c;
 }
 
 .detailmovie-container .movie_info .rating {
