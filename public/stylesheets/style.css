@@ -343,10 +343,42 @@ main .display_container .movie_container a .container h2 {
 
 .detailmovie-container .movie_info .release-date {
   font-style: italic;
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 }
 
 .detailmovie-container .movie_info .rating {
-  margin: 1rem 0;
+  margin: 1.5rem 0;
+}
+
+.detailmovie-container .movie_info .sub_title {
+  margin: 0.8rem 0;
+  color: #009688;
+}
+
+.detailmovie-container .movie_info .eachCast {
+  margin: 0.5rem;
+  line-height: 2;
+}
+
+.detailmovie-container .movie_info .button_contianer {
+  margin: 3rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.detailmovie-container .movie_info .button_contianer a button {
+  cursor: pointer;
+  outline: none;
+  font-size: 1rem;
+  letter-spacing: 0.8px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 1.5rem;
+  color: white;
+  background-color: #009688;
 }
 /*# sourceMappingURL=style.css.map */

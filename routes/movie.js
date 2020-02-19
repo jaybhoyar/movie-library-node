@@ -4,6 +4,7 @@ var Movie = require("../models/movie");
 var Comment = require("../models/comments");
 var multer = require("multer");
 var path = require("path");
+var fs = require("fs");
 
 // Movie Poster Upload ---
 const storage = multer.diskStorage({
@@ -11,7 +12,7 @@ const storage = multer.diskStorage({
 		callBack(null, path.join(__dirname, "../public/uploads"));
 	},
 	filename: (req, file, callBack) => {
-		callBack(null, `moviePoster${file.originalname}`);
+		callBack(null, `Poster${file.originalname}`);
 	}
 });
 var upload = multer({ storage: storage });
@@ -73,6 +74,10 @@ router.get("/delete/:id", (req, res, next) => {
 	let id = req.params.id;
 	Movie.findByIdAndRemove(id, (err, movie) => {
 		if (err) next(err);
+		let imagePath = path.join(__dirname, "../public/uploads/" + movie.img);
+		fs.unlink(imagePath, err => {
+			if (err) console.log(err);
+		});
 		res.redirect("/movies");
 	});
 });

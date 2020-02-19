@@ -345,10 +345,36 @@ main {
 		}
 		.release-date {
 			font-style: italic;
-			margin: 1rem 0;
+			margin: 1.5rem 0;
 		}
 		.rating {
-			margin: 1rem 0;
+			margin: 1.5rem 0;
+		}
+		.sub_title {
+			margin: 0.8rem 0;
+			color: #009688;
+		}
+		.eachCast {
+			margin: 0.5rem;
+			line-height: 2;
+		}
+		.button_contianer {
+			margin: 3rem 0;
+			display: flex;
+			justify-content: space-between;
+			a {
+				button {
+					cursor: pointer;
+					outline: none;
+					font-size: 1rem;
+					letter-spacing: 0.8px;
+					padding: 10px 24px;
+					border: none;
+					border-radius: 1.5rem;
+					color: rgb(255, 255, 255);
+					background-color: #009688;
+				}
+			}
 		}
 	}
 }

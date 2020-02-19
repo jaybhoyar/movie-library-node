@@ -17,16 +17,14 @@
 				<p class="synopsis"><%= movie.synopsis %></p>
 				<p class="release-date"><%= movie.releaseDate %></p>
 				<p class="rating">★ <%= movie.rating %></p>
-				<p class="genre_title">Genre:</p>
+				<p class="sub_title">Genre:</p>
 				<% movie.genre.forEach( eachGenre => { %>
-				<span><%= eachGenre %>| </span>
+				<span class="eachCast">⦿ <%= eachGenre %></span>
 				<% }) %>
-				<div class="casts">
-					<p class="casts_title">Casts:</p>
-					<% movie.casts.forEach( eachCast => { %>
-					<span><%= eachCast %> | </span>
-					<% }) %>
-				</div>
+				<p class="sub_title">Casts:</p>
+				<% movie.casts.forEach( eachCast => { %>
+				<span class="eachCast">⦿ <%= eachCast %> </span>
+				<% }) %>
 
 				<div class="button_contianer">
 					<a href="/movies/editMovie/<%= movie.id %>"
