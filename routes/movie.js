@@ -19,10 +19,14 @@ var upload = multer({ storage: storage });
 
 // GET movies listing ---
 router.get("/", (req, res, next) => {
-	Movie.find({}, (err, movies) => {
-		if (err) next(err);
-		res.render("movies.ejs", { movies });
-	});
+	if (req.session && req.session.userId) {
+		Movie.find({}, (err, movies) => {
+			if (err) next(err);
+			res.render("movies.ejs", { movies });
+		});
+	} else {
+		res.redirect("/user");
+	}
 });
 
 // Create New Movie ----

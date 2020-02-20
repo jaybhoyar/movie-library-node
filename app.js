@@ -7,6 +7,9 @@ var indexRouter = require("./routes/index");
 var moviesRouter = require("./routes/movie.js");
 const mongoose = require("mongoose");
 var multer = require("multer");
+const userRouter = require("./routes/user");
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 
 mongoose.connect(
 	"mongodb://localhost/moviedatabase",
@@ -29,9 +32,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(
+	session({
+		secret: "utuhurninrufd",
+		resave: false,
+		saveUninitialized: true,
+		store: new MongoStore({
+			mongooseConnection: mongoose.connection
+		})
+	})
+);
 
 app.use("/", indexRouter);
 app.use("/movies", moviesRouter);
+app.use("/user", userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
