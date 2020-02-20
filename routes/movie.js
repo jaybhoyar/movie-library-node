@@ -5,6 +5,7 @@ var Comment = require("../models/comments");
 var multer = require("multer");
 var path = require("path");
 var fs = require("fs");
+const auth = require("../middlewares/auth");
 
 // Movie Poster Upload ---
 const storage = multer.diskStorage({
@@ -18,15 +19,22 @@ const storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 // GET movies listing ---
+router.use(auth.restrictUnAuthorised);
+
 router.get("/", (req, res, next) => {
-	if (req.session && req.session.userId) {
-		Movie.find({}, (err, movies) => {
-			if (err) next(err);
-			res.render("movies.ejs", { movies });
+	Movie.find({}, (err, movies) => {
+		if (err) next(err);
+		res.render("movies.ejs", {
+			movies,
+			userDetail: req.session.userDetail
 		});
-	} else {
+	});
+});
+router.get("/logout", (req, res, next) => {
+	req.session.destroy(function(err) {
+		if (err) next(err);
 		res.redirect("/user");
-	}
+	});
 });
 
 // Create New Movie ----

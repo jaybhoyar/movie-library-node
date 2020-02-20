@@ -6,10 +6,10 @@ var logger = require("morgan");
 var indexRouter = require("./routes/index");
 var moviesRouter = require("./routes/movie.js");
 const mongoose = require("mongoose");
-var multer = require("multer");
 const userRouter = require("./routes/user");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const auth = require("./middlewares/auth");
 
 mongoose.connect(
 	"mongodb://localhost/moviedatabase",
@@ -42,6 +42,7 @@ app.use(
 		})
 	})
 );
+app.use(auth.isUserLogged);
 
 app.use("/", indexRouter);
 app.use("/movies", moviesRouter);

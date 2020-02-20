@@ -17,6 +17,7 @@ router.post("/register", (req, res, next) => {
 		res.redirect("/user");
 	});
 });
+
 router.post("/", (req, res, next) => {
 	var { email, password } = req.body;
 	User.findOne({ email }, (err, user) => {
@@ -24,6 +25,7 @@ router.post("/", (req, res, next) => {
 		if (!user) return res.redirect("/user/register");
 		if (!user.verifyPassword(password)) return res.send("Wrong Password");
 		req.session.userId = user.id;
+		req.session.userDetail = user;
 		res.redirect("/movies");
 	});
 });
