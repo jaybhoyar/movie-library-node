@@ -379,6 +379,9 @@ main {
 		}
 		.comment_container {
 			width: 90%;
+			padding: 20px;
+			background-color: rgb(243, 243, 243);
+			border-radius: 6px;
 			form {
 				input {
 					display: block;
@@ -390,15 +393,21 @@ main {
 					border-bottom: 1px solid #ccc;
 					font-size: 1rem;
 					width: 80%;
+					background-color: transparent;
 				}
 				.submit_button {
 					padding: 0.5rem 1rem;
 					cursor: pointer;
-					background-color: #b3b3b3;
+					background-color: #1f1f1f;
 					width: fit-content;
 					color: #fff;
 					border-radius: 20px;
 				}
+			}
+			p {
+				font-size: 1.2rem;
+				padding: 1.3rem 0;
+				padding-left: 1.5rem;
 			}
 		}
 	}
