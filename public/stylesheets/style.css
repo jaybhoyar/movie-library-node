@@ -386,4 +386,27 @@ main .display_container .movie_container a .container h2 {
 .detailmovie-container .movie_info .comment_container {
   width: 90%;
 }
+
+.detailmovie-container .movie_info .comment_container form input {
+  display: block;
+  padding: 0.6rem 1rem;
+  border: none;
+  outline: none;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #ccc;
+  font-size: 1rem;
+  width: 80%;
+}
+
+.detailmovie-container .movie_info .comment_container form .submit_button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background-color: #b3b3b3;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #fff;
+  border-radius: 20px;
+}
 /*# sourceMappingURL=style.css.map */
