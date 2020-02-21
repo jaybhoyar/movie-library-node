@@ -34,24 +34,28 @@
 						><button>Delete</button></a
 					>
 				</div>
+
+				<div class="comment_container">
+					<form
+						action="/movies/comments/<%= movie.id %>"
+						method="POST"
+					>
+						<input
+							type="text"
+							name="text"
+							placeholder="Add your review here..."
+						/>
+						<input
+							class="submit_button"
+							type="submit"
+							value="Add Comment"
+						/>
+					</form>
+					<% movie.comments.forEach( comment => {%>
+					<p><%= comment.text %></p>
+					<%})%>
+				</div>
 			</div>
-		</div>
-		<div class="comment_container">
-			<form action="/movies/comments/<%= movie.id %>" method="POST">
-				<input
-					type="text"
-					name="text"
-					placeholder="Add your review here..."
-				/>
-				<input
-					class="submit_button"
-					type="submit"
-					value="Add Comment"
-				/>
-			</form>
-			<% movie.comments.forEach( comment => {%>
-			<p><%= comment.text %></p>
-			<%})%>
 		</div>
 	</body>
 </html>

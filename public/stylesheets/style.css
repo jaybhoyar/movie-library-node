@@ -382,4 +382,8 @@ main .display_container .movie_container a .container h2 {
   color: white;
   background-color: #009688;
 }
+
+.detailmovie-container .movie_info .comment_container {
+  width: 90%;
+}
 /*# sourceMappingURL=style.css.map */
