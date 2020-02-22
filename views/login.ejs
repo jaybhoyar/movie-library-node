@@ -4,16 +4,26 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>login</title>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
 	</head>
 	<body>
 		<h1>Login</h1>
-		<form action="/user" method="POST">
-			<label for="Email">Email</label>
-			<input type="email" name="email" placeholder="Email" />
-			<label for="password">Password</label>
-			<input type="password" name="password" placeholder="Password" />
-			<input class="submit_button" type="submit" value="Submit" />
-		</form>
+
 		<a href="/user/register">Register</a>
+		<div class="form_container">
+			<div class="container">
+				<form action="/user" method="POST">
+					<label for="Email">Email</label>
+					<input type="email" name="email" placeholder="Email" />
+					<label for="password">Password</label>
+					<input
+						type="password"
+						name="password"
+						placeholder="Password"
+					/>
+					<input class="submit_button" type="submit" value="Submit" />
+				</form>
+			</div>
+		</div>
 	</body>
 </html>
