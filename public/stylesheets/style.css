@@ -264,15 +264,15 @@ main .display_container .movie_container a .container h2 {
   padding: 2rem;
 }
 
-.form_container .container form .col label {
+.form_container label {
   display: block;
   font-weight: 600;
   font-size: 1rem;
   color: gray;
 }
 
-.form_container .container form .col input,
-.form_container .container form .col textarea {
+.form_container input,
+.form_container textarea {
   display: block;
   padding: 0.6rem 1rem;
   border: none;
@@ -284,11 +284,11 @@ main .display_container .movie_container a .container h2 {
   width: 250px;
 }
 
-.form_container .container form .col input:focus {
+.form_container input:focus {
   border-bottom: 1.5px solid #009688;
 }
 
-.form_container .container form .col .submit_button {
+.form_container .submit_button {
   padding: 0.8rem 1.5rem;
   cursor: pointer;
   background-color: #009688;
