@@ -7,40 +7,64 @@
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 	</head>
 	<body>
-		<div class="container">
-			<form action="/movies/editMovie/<%= movie.id %>" method="POST">
-				<label for="title">Title</label>
-				<input type="text" name="title" value="<%= movie.title %>" />
-				<label for="title">Synopsis</label>
-				<input
-					type="text"
-					name="synopsis"
-					value="<%= movie.synopsis %>"
-				/>
-				<label for="title">Release Date</label>
-				<input
-					type="date"
-					name="releaseDate"
-					value="<%= movie.releaseDate %>"
-				/>
-				<label for="image">Movie Poster</label>
-				<input type="file" name="img" />
-				<label for="title">Rating</label>
-				<input
-					type="number"
-					name="rating"
-					value="<%= movie.rating %>"
-				/>
-				<label for="title">Genre</label>
-				<input
-					type="text"
-					name="genre"
-					value="Action, Adventure, Drama"
-				/>
-				<label for="title">Casts</label>
-				<input type="text" name="casts" value="Enter the Casts" />
-				<input class="submit_button" type="submit" value="Submit" />
-			</form>
-		</div>
+    <div class="form_container">
+      <h1>Edit Movie</h1>
+			<div class="container">
+				<form
+					action="/movies/editMovie/<%= movie.id %>"
+          method="POST"	
+          
+				>
+					<div class="col">
+						<label for="title">Title</label>
+						<input
+							type="text"
+              name="title"
+              value="<%= movie.title %>"
+						/>
+						<label for="synopsis">Synopsis</label>
+						<textarea
+							type="text"
+							name="synopsis"
+							rows="6"
+            >
+            <%= movie.synopsis %>"</textarea>
+						<label for="image">Movie Poster</label>
+						<input type="file" name="img" />
+						<label for="releaseDate">Release Date</label>
+						<input
+							type="date"
+							name="releaseDate"
+							value="<%= movie.releaseDate %>"
+						/>
+					</div>
+					<div class="col">
+						<label for="rating">Rating</label>
+						<input
+							type="text"
+							name="rating"
+              value="<%= movie.rating %>"
+
+						/>
+						<label for="genre">Genre</label>
+						<input
+							type="text"
+							name="genre"
+							placeholder="Action, Adventure, Drama"
+						/>
+						<label for="casts">Casts</label>
+						<input
+							type="text"
+							name="casts"
+							placeholder="Enter the Casts"
+						/>
+						<input
+							class="submit_button"
+							type="submit"
+							value="Submit"
+						/>
+					</div>
+				</form>
+			</div>
 	</body>
 </html>

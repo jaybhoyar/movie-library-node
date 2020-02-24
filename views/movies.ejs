@@ -11,6 +11,11 @@
 			<div class="header_container">
 				<div class="icons_container">
 					<img src="/images/movie_night.svg" alt="" />
+					<div>
+						<p><%= userDetail.name %></p>
+						<a href="/movies/logout">logout</a>
+					</div>
+
 					<a href="/movies/new">
 						<button class="">Add Movie</button>
 					</a>
@@ -30,8 +35,6 @@
 					<%})%>
 				</div>
 			</div>
-			<p><%= userDetail.name %></p>
-			<a href="/movies/logout">logout</a>
 		</main>
 	</body>
 </html>

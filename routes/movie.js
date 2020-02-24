@@ -30,6 +30,7 @@ router.get("/", (req, res, next) => {
 		});
 	});
 });
+
 router.get("/logout", (req, res, next) => {
 	req.session.destroy(function(err) {
 		if (err) next(err);
@@ -74,10 +75,11 @@ router.get("/editMovie/:id", (req, res, next) => {
 });
 router.post("/editMovie/:id", (req, res, next) => {
 	console.log("in Update...");
-	let id = req.params.id;
-	Movie.findByIdAndUpdate(id, req.body, (err, movie) => {
+	let Id = req.params.id;
+	Movie.findByIdAndUpdate(Id, req.body, (err, movie) => {
 		if (err) return next(err);
-		res.redirect("/movies");
+		console.log(req.body);
+		res.redirect(`/movies`);
 	});
 });
 

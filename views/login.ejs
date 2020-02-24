@@ -7,21 +7,17 @@
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 	</head>
 	<body>
-		<h1>Login</h1>
-
-		<a href="/user/register">Register</a>
-		<div class="form_container">
-			<div class="container">
+		<div class="login_form_container">
+			<h1>Login</h1>
+			<div class="login_container">
 				<form action="/user" method="POST">
 					<label for="Email">Email</label>
-					<input type="email" name="email" placeholder="Email" />
+					<input type="email" name="email" placeholder="" />
+					<br />
 					<label for="password">Password</label>
-					<input
-						type="password"
-						name="password"
-						placeholder="Password"
-					/>
+					<input type="password" name="password" placeholder="" />
 					<input class="submit_button" type="submit" value="Submit" />
+					<a href="/user/register">Register</a>
 				</form>
 			</div>
 		</div>
