@@ -51,8 +51,11 @@
 							value="Add Comment"
 						/>
 					</form>
+
 					<% movie.comments.forEach( comment => {%>
+					<span><%= userDetail.name %></span>
 					<p>→ <%= comment.text %></p>
+
 					<%})%>
 				</div>
 			</div>

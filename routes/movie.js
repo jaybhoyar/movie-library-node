@@ -61,7 +61,10 @@ router.get("/:id", (req, res, next) => {
 	Movie.findById(id)
 		.populate("comments")
 		.exec((err, movie) => {
-			res.render("detailMovie.ejs", { movie });
+			res.render("detailMovie.ejs", {
+				movie,
+				userDetail: req.session.userDetail
+			});
 		});
 });
 
