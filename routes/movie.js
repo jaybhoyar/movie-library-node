@@ -24,7 +24,10 @@ router.use(auth.restrictUnAuthorised);
 router.get("/", (req, res, next) => {
 	Movie.find({}, (err, movies) => {
 		if (err) next(err);
-		res.render("movies.ejs", { movies });
+		res.render("movies.ejs", {
+			movies,
+			userDetail: req.session.userDetail
+		});
 	});
 });
 
@@ -47,7 +50,7 @@ router.post("/", upload.single("img"), (req, res, next) => {
 	movieObject.casts = movieObject.casts.split(",");
 	Movie.create(movieObject, (err, createdMovie) => {
 		if (err) next(err);
-		console.log(createdMovie);
+
 		res.redirect("/movies");
 	});
 });
@@ -61,6 +64,7 @@ router.get("/:id", (req, res, next) => {
 		.populate("comments")
 		.exec((err, movie) => {
 			if (err) return next(err);
+			console.log(movie);
 			res.render("detailMovie.ejs", { movie });
 			// console.log(movie);
 		});
@@ -69,9 +73,14 @@ router.get("/:id", (req, res, next) => {
 // Update Movie ----
 router.get("/editMovie/:id", (req, res, next) => {
 	let id = req.params.id;
+
 	Movie.findById(id, (err, movie) => {
 		if (err) next(err);
-		res.render("updateMovie.ejs", { movie });
+		if (req.session.userId == movie.creator.id) {
+			res.render("updateMovie.ejs", { movie });
+		} else {
+			res.redirect("/movies");
+		}
 	});
 });
 router.post("/editMovie/:id", (req, res, next) => {
@@ -87,14 +96,21 @@ router.post("/editMovie/:id", (req, res, next) => {
 // Delete Movie -----
 router.get("/delete/:id", (req, res, next) => {
 	let id = req.params.id;
-	Movie.findByIdAndRemove(id, (err, movie) => {
-		if (err) next(err);
-		let imagePath = path.join(__dirname, "../public/uploads/" + movie.img);
-		fs.unlink(imagePath, err => {
-			if (err) console.log(err);
+	if (req.session.userId == id) {
+		Movie.findByIdAndRemove(id, (err, movie) => {
+			if (err) next(err);
+			let imagePath = path.join(
+				__dirname,
+				"../public/uploads/" + movie.img
+			);
+			fs.unlink(imagePath, err => {
+				if (err) console.log(err);
+			});
+			res.redirect("/movies");
 		});
+	} else {
 		res.redirect("/movies");
-	});
+	}
 });
 // Handle Comments
 router.post("/comments/:id", (req, res, next) => {
