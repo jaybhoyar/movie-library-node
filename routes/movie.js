@@ -24,10 +24,7 @@ router.use(auth.restrictUnAuthorised);
 router.get("/", (req, res, next) => {
 	Movie.find({}, (err, movies) => {
 		if (err) next(err);
-		res.render("movies.ejs", {
-			movies,
-			userDetail: req.session.userDetail
-		});
+		res.render("movies.ejs", { movies });
 	});
 });
 
@@ -45,11 +42,12 @@ router.get("/new", (req, res, next) => {
 router.post("/", upload.single("img"), (req, res, next) => {
 	let movieObject = req.body;
 	movieObject.img = req.file.filename;
-	console.log(movieObject);
+	movieObject.creator = req.session.userId;
 	movieObject.genre = movieObject.genre.split(",");
 	movieObject.casts = movieObject.casts.split(",");
 	Movie.create(movieObject, (err, createdMovie) => {
 		if (err) next(err);
+		console.log(createdMovie);
 		res.redirect("/movies");
 	});
 });
@@ -59,12 +57,12 @@ router.post("/", upload.single("img"), (req, res, next) => {
 router.get("/:id", (req, res, next) => {
 	let id = req.params.id;
 	Movie.findById(id)
+		.populate("creator", "name")
 		.populate("comments")
 		.exec((err, movie) => {
-			res.render("detailMovie.ejs", {
-				movie,
-				userDetail: req.session.userDetail
-			});
+			if (err) return next(err);
+			res.render("detailMovie.ejs", { movie });
+			// console.log(movie);
 		});
 });
 

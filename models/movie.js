@@ -20,7 +20,7 @@ var movieSchema = new Schema(
 		},
 		genre: Array,
 		casts: Array,
-		user: {
+		creator: {
 			type: Schema.Types.ObjectId,
 			ref: "User"
 		},
