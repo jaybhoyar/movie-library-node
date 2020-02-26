@@ -60,7 +60,7 @@ router.post("/", upload.single("img"), (req, res, next) => {
 router.get("/:id", (req, res, next) => {
 	let id = req.params.id;
 	Movie.findById(id)
-		.populate("creator", "name")
+		.populate("creator")
 		.populate("comments")
 		.exec((err, movie) => {
 			if (err) return next(err);
