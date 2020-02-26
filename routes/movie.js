@@ -73,20 +73,22 @@ router.get("/:id", (req, res, next) => {
 // Update Movie ----
 router.get("/editMovie/:id", (req, res, next) => {
 	let id = req.params.id;
-
+	console.log("user ID", req.session.userId);
 	Movie.findById(id, (err, movie) => {
 		if (err) next(err);
-		if (req.session.userId == movie.creator.id) {
+		if (req.session.userId == movie.creator._id) {
 			res.render("updateMovie.ejs", { movie });
 		} else {
 			res.redirect("/movies");
 		}
 	});
 });
-router.post("/editMovie/:id", (req, res, next) => {
+router.post("/editMovie/:id", upload.single("img"), (req, res, next) => {
 	console.log("in Update...");
 	let Id = req.params.id;
-	Movie.findByIdAndUpdate(Id, req.body, (err, movie) => {
+	let movieObject = req.body;
+	movieObject.img = req.file.filename;
+	Movie.findByIdAndUpdate(Id, movieObject, (err, movie) => {
 		if (err) return next(err);
 		console.log(req.body);
 		res.redirect(`/movies`);

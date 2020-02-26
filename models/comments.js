@@ -10,6 +10,11 @@ var commentSchema = new Schema(
 			type: Schema.Types.ObjectId,
 			ref: "Movie",
 			required: true
+		},
+		author: {
+			type: Schema.Types.ObjectId,
+			ref: "",
+			required: true
 		}
 	},
 	{ timestamps: true }
