@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
 	},
 	filename: (req, file, callBack) => {
 		callBack(null, `Poster${file.originalname}`);
-	}
+	},
 });
 var upload = multer({ storage: storage });
 
@@ -26,13 +26,13 @@ router.get("/", (req, res, next) => {
 		if (err) next(err);
 		res.render("movies.ejs", {
 			movies,
-			userDetail: req.session.userDetail
+			userDetail: req.session.userDetail,
 		});
 	});
 });
 
 router.get("/logout", (req, res, next) => {
-	req.session.destroy(function(err) {
+	req.session.destroy(function (err) {
 		if (err) next(err);
 		res.redirect("/user");
 	});
@@ -43,14 +43,17 @@ router.get("/new", (req, res, next) => {
 	res.render("movieForm.ejs");
 });
 router.post("/", upload.single("img"), (req, res, next) => {
+	console.log("Body", req.body);
 	let movieObject = req.body;
 	movieObject.img = req.file.filename;
+	console.log("file path", req.file);
+
 	movieObject.creator = req.session.userId;
 	movieObject.genre = movieObject.genre.split(",");
 	movieObject.casts = movieObject.casts.split(",");
 	Movie.create(movieObject, (err, createdMovie) => {
 		if (err) next(err);
-
+		console.log(createdMovie);
 		res.redirect("/movies");
 	});
 });
@@ -105,7 +108,7 @@ router.get("/delete/:id", (req, res, next) => {
 				__dirname,
 				"../public/uploads/" + movie.img
 			);
-			fs.unlink(imagePath, err => {
+			fs.unlink(imagePath, (err) => {
 				if (err) console.log(err);
 			});
 			res.redirect("/movies");
