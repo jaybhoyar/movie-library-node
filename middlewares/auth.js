@@ -22,5 +22,5 @@ function restrictUnAuthorised(req, res, next) {
 }
 module.exports = {
 	isUserLogged,
-	restrictUnAuthorised
+	restrictUnAuthorised,
 };

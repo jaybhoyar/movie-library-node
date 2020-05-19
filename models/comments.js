@@ -4,18 +4,18 @@ var commentSchema = new Schema(
 	{
 		text: {
 			type: String,
-			required: true
+			required: true,
 		},
 		movieId: {
 			type: Schema.Types.ObjectId,
 			ref: "Movie",
-			required: true
+			required: true,
 		},
 		author: {
 			type: Schema.Types.ObjectId,
-			ref: "",
-			required: true
-		}
+			ref: "User",
+			required: true,
+		},
 	},
 	{ timestamps: true }
 );

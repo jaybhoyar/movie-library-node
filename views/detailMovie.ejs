@@ -7,59 +7,73 @@
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 	</head>
 	<body>
-		<div class="detailmovie-container">
-			<div class="movie_poster">
-				<img class="movie-img" src="/uploads/<%= movie.img %>" alt="" />
-			</div>
-			<div class="movie_info">
-				<p class="creator"><%= movie.creator.name %></p>
-				<p class="title"><%= movie.title %></p>
-				<h3>The Synopsis</h3>
-				<p class="synopsis"><%= movie.synopsis %></p>
-				<p class="release-date"><%= movie.releaseDate %></p>
-				<p class="rating">☆ <%= movie.rating %></p>
-				<p class="sub_title">Genre:</p>
-				<% movie.genre.forEach( eachGenre => { %>
-				<span class="eachCast">⦿ <%= eachGenre %></span>
-				<% }) %>
-				<p class="sub_title">Casts:</p>
-				<% movie.casts.forEach( eachCast => { %>
-				<span class="eachCast">⦿ <%= eachCast %> </span>
-				<% }) %>
-
-				<div class="button_contianer">
-					<a href="/movies/editMovie/<%= movie.id %>"
-						><button>Edit</button></a
-					>
-					<a href="/movies/delete/<%= movie.id %>"
-						><button>Delete</button></a
-					>
+		<%- include('partials/header.ejs') %>
+		<main>
+			<div class="detailmovie-container">
+				<div class="movie_poster">
+					<img
+						class="movie-img"
+						src="/images/<%= movie.img %>"
+						alt=""
+					/>
 				</div>
+				<div class="movie_info">
+					<div class="movie-header">
+						<p class="title"><%= movie.title %></p>
+						<p class="creator">🖋<%= movie.creator.name %></p>
+					</div>
+					<div>
+						<h3>The Synopsis</h3>
+						<p class="synopsis"><%= movie.synopsis %></p>
+						<p class="release-date"><%= movie.releaseDate %></p>
+						<p class="rating">☆ <%= movie.rating %></p>
+						<p class="sub_title">Genre:</p>
+						<% movie.genre.forEach( eachGenre => { %>
+						<span class="eachCast">⦿ <%= eachGenre %></span>
+						<% }) %>
+						<p class="sub_title">Casts:</p>
+						<% movie.casts.forEach( eachCast => { %>
+						<span class="eachCast">⦿ <%= eachCast %> </span>
+						<% }) %>
+						<br />
+					</div>
 
-				<div class="comment_container">
-					<form
-						action="/movies/comments/<%= movie.id %>"
-						method="POST"
-					>
-						<input
-							type="text"
-							name="text"
-							placeholder="Add your review here..."
-						/>
-						<input
-							class="submit_button"
-							type="submit"
-							value="Add Comment"
-						/>
-					</form>
+					<% if(currentUser.name === movie.creator.name ) { %>
+					<div class="button_contianer">
+						<a href="/movies/editMovie/<%= movie.id %>"
+							><button>Edit</button></a
+						>
+						<a href="/movies/delete/<%= movie.id %>"
+							><button>Delete</button></a
+						>
+					</div>
+					<% } %>
 
-					<% movie.comments.forEach( comment => {%>
-					<span><%= userDetail.name %></span>
-					<p>→ <%= comment.text %></p>
+					<div class="comment_container">
+						<form
+							action="/movies/comments/<%= movie._id %>"
+							method="POST"
+						>
+							<input
+								type="text"
+								name="text"
+								placeholder="Add your review here..."
+							/>
+							<input
+								class="submit_button"
+								type="submit"
+								value="Add Comment"
+							/>
+						</form>
 
-					<%})%>
+						<% movie.comments.forEach( comment => {%>
+						<span><%= comment.author.name %></span>
+						<p>→ <%= comment.text %></p>
+
+						<%})%>
+					</div>
 				</div>
 			</div>
-		</div>
+		</main>
 	</body>
 </html>

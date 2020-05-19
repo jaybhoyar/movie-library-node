@@ -63,15 +63,15 @@ router.post("/", upload.single("img"), (req, res, next) => {
 // Get Single Movie ----
 
 router.get("/:id", (req, res, next) => {
+	var currentUser = req.session.loggedUser;
 	let id = req.params.id;
 	Movie.findById(id)
 		.populate("creator")
 		.populate("comments")
 		.exec((err, movie) => {
 			if (err) return next(err);
-			console.log(movie);
-			res.render("detailMovie.ejs", { movie });
-			// console.log(movie);
+
+			res.render("detailMovie.ejs", { movie, currentUser });
 		});
 });
 
@@ -119,18 +119,22 @@ router.get("/delete/:id", (req, res, next) => {
 		res.redirect("/movies");
 	}
 });
+
 // Handle Comments
 router.post("/comments/:id", (req, res, next) => {
-	let movieid = req.params.id;
-	req.body.movieId = movieid;
+	req.body.movieId = req.params.id;
+	console.log(req.session.loggedUser.id);
+	req.body.author = req.session.loggedUser.id;
 	Comment.create(req.body, (err, createdComment) => {
 		if (err) next(err);
+		console.log(createdComment);
 		Movie.findByIdAndUpdate(
-			movieid,
+			req.params.id,
 			{ $push: { comments: createdComment.id } },
-			(err, movies) => {
+			(err, movie) => {
 				if (err) next(err);
-				res.redirect(`/movies/${movieid}`);
+				console.log(movie);
+				res.redirect(`/movies/${req.params.id}`);
 			}
 		);
 	});

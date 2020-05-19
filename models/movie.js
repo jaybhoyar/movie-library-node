@@ -4,32 +4,32 @@ var movieSchema = new Schema(
 	{
 		title: {
 			type: String,
-			required: true
+			required: true,
 		},
 		synopsis: String,
 		releaseDate: {
-			type: String
+			type: String,
 		},
 		img: {
-			type: String
+			type: String,
 		},
 		rating: {
 			type: Number,
 			min: 0,
-			max: 5
+			max: 5,
 		},
 		genre: Array,
 		casts: Array,
 		creator: {
 			type: Schema.Types.ObjectId,
-			ref: "User"
+			ref: "User",
 		},
 		comments: [
 			{
 				type: Schema.Types.ObjectId,
-				ref: "Comment"
-			}
-		]
+				ref: "Comment",
+			},
+		],
 	},
 	{ timestamps: true }
 );

@@ -369,55 +369,78 @@ main {
 }
 
 .detailmovie-container .movie_poster .movie-img {
-  width: 300px;
+  margin: 2rem 0;
+  width: 90%;
+  height: 400px;
   border-radius: 8px;
 }
 
 .detailmovie-container .movie_info {
-  width: 60%;
+  width: 63%;
 }
 
-.detailmovie-container .movie_info .title {
+.detailmovie-container .movie_info .movie-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.detailmovie-container .movie_info .movie-header .creator {
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  color: #929191;
+  margin: 2rem 0;
+}
+
+.detailmovie-container .movie_info .movie-header .title {
   font-size: 2rem;
   text-transform: uppercase;
   color: #009688;
   margin: 2rem 0;
 }
 
-.detailmovie-container .movie_info h3 {
-  font-size: 1.2rem;
+.detailmovie-container .movie_info div {
+  margin-bottom: 3rem;
+}
+
+.detailmovie-container .movie_info div h3 {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  font-weight: 600;
   margin: 1.5rem 0;
 }
 
-.detailmovie-container .movie_info .synopsis {
+.detailmovie-container .movie_info div .synopsis {
   font-size: 1rem;
   line-height: 1.5;
   margin: 1rem 0;
   color: #7c7c7c;
 }
 
-.detailmovie-container .movie_info .release-date {
+.detailmovie-container .movie_info div .release-date {
   font-style: italic;
   margin: 1.5rem 0;
   color: #7c7c7c;
 }
 
-.detailmovie-container .movie_info .rating {
+.detailmovie-container .movie_info div .rating {
   margin: 1.5rem 0;
 }
 
-.detailmovie-container .movie_info .sub_title {
+.detailmovie-container .movie_info div .sub_title {
   margin: 0.8rem 0;
   color: #009688;
 }
 
-.detailmovie-container .movie_info .eachCast {
+.detailmovie-container .movie_info div .eachCast {
   margin: 0.5rem;
   line-height: 2;
 }
 
 .detailmovie-container .movie_info .button_contianer {
-  margin: 3rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -439,10 +462,11 @@ main {
 }
 
 .detailmovie-container .movie_info .comment_container {
+  margin: 3rem 0;
   width: 90%;
   padding: 20px;
-  background-color: #f3f3f3;
-  border-radius: 6px;
+  background-color: rgba(245, 245, 245, 0.753);
+  border-radius: 10px;
 }
 
 .detailmovie-container .movie_info .comment_container form input {
