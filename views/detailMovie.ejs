@@ -62,18 +62,23 @@
 						<% }) %>
 						<br />
 					</div>
-
+					<!-- Admin Controls -->
 					<% if(currentUser.name === movie.creator.name ) { %>
-					<div class="button-contianer">
+					<div class="button-container">
 						<a href="/movies/editMovie/<%= movie.id %>"
-							><button>Edit</button></a
+							><button class="cicular_button positive">
+								Edit
+							</button></a
 						>
 						<a href="/movies/delete/<%= movie.id %>"
-							><button>Delete</button></a
+							><button class="cicular_button positive">
+								Delete
+							</button></a
 						>
 					</div>
 					<% } %>
-
+					<!-- ======= -->
+					<!-- Comment Section -->
 					<div class="comment-container">
 						<form
 							action="/movies/comments/<%= movie._id %>"
