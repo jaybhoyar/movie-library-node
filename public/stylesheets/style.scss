@@ -289,7 +289,7 @@ main {
 
 .detailmovie-container {
 	display: flex;
-	margin: 2rem 5rem;
+	margin: 2rem 7rem;
 	justify-content: space-evenly;
 	.movie_poster {
 		font-size: 0;
@@ -298,6 +298,7 @@ main {
 		.movie-img {
 			margin: 2rem 0;
 			width: 90%;
+			object-fit: cover;
 			height: 400px;
 			border-radius: 8px;
 		}
@@ -320,8 +321,25 @@ main {
 				margin: 2rem 0;
 			}
 		}
-		div {
-			margin-bottom: 3rem;
+		.movie-detail-content {
+			.rating-date {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				.release-date {
+					font-style: italic;
+					margin: 0.8rem 0;
+					color: rgb(124, 124, 124);
+				}
+				.rating {
+					display: inline;
+					img {
+						height: 16px;
+						width: 16px;
+					}
+					margin: 1.5rem 0;
+				}
+			}
 			h3 {
 				font-size: 1.1rem;
 				letter-spacing: 1px;
@@ -334,29 +352,28 @@ main {
 				margin: 1rem 0;
 				color: rgb(124, 124, 124);
 			}
-			.release-date {
-				font-style: italic;
-				margin: 1.5rem 0;
-				color: rgb(124, 124, 124);
+
+			.sub-title {
+				margin: 0.8rem 0;
+				font-weight: 600;
+				color: $base-color;
 			}
-			.rating {
-				display: inline;
+			.each-cast {
+				margin: 0.5rem;
+				line-height: 2;
 				img {
+					height: 16px;
+					width: 16px;
+					vertical-align: middle;
+				}
+				.mask {
 					height: 20px;
 					width: 20px;
 				}
-				margin: 1.5rem 0;
-			}
-			.sub_title {
-				margin: 0.8rem 0;
-				color: $base-color;
-			}
-			.eachCast {
-				margin: 0.5rem;
-				line-height: 2;
 			}
 		}
-		.button_contianer {
+		.button-contianer {
+      margin: 1.5rem 0;
 			display: flex;
 			justify-content: space-between;
 			a {
@@ -373,7 +390,7 @@ main {
 				}
 			}
 		}
-		.comment_container {
+		.comment-container {
 			margin: 3rem 0;
 			width: 90%;
 			padding: 20px;
@@ -392,7 +409,7 @@ main {
 					width: 80%;
 					background-color: transparent;
 				}
-				.submit_button {
+				.submit-button {
 					padding: 0.5rem 1rem;
 					cursor: pointer;
 					background-color: #1f1f1f;
@@ -400,7 +417,10 @@ main {
 					color: #fff;
 					border-radius: 20px;
 				}
-			}
+      }
+      .each-comment{
+        margin: 1.5rem 0; 
+      }
 			.comment-author {
 				color: #929191;
 			}
@@ -409,7 +429,7 @@ main {
 			}
 			span {
 				font-size: 1rem;
-				padding: 1.3rem 0;
+				margin: 1.3rem 0;
 				padding-left: 1.5rem;
 			}
 		}

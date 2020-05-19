@@ -354,7 +354,7 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 2rem 5rem;
+  margin: 2rem 7rem;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -369,6 +369,8 @@ main {
 .detailmovie-container .movie_poster .movie-img {
   margin: 2rem 0;
   width: 90%;
+  -o-object-fit: cover;
+     object-fit: cover;
   height: 400px;
   border-radius: 8px;
 }
@@ -400,51 +402,72 @@ main {
   margin: 2rem 0;
 }
 
-.detailmovie-container .movie_info div {
-  margin-bottom: 3rem;
+.detailmovie-container .movie_info .movie-detail-content .rating-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.detailmovie-container .movie_info div h3 {
+.detailmovie-container .movie_info .movie-detail-content .rating-date .release-date {
+  font-style: italic;
+  margin: 0.8rem 0;
+  color: #7c7c7c;
+}
+
+.detailmovie-container .movie_info .movie-detail-content .rating-date .rating {
+  display: inline;
+  margin: 1.5rem 0;
+}
+
+.detailmovie-container .movie_info .movie-detail-content .rating-date .rating img {
+  height: 16px;
+  width: 16px;
+}
+
+.detailmovie-container .movie_info .movie-detail-content h3 {
   font-size: 1.1rem;
   letter-spacing: 1px;
   font-weight: 600;
   margin: 1.5rem 0;
 }
 
-.detailmovie-container .movie_info div .synopsis {
+.detailmovie-container .movie_info .movie-detail-content .synopsis {
   font-size: 1rem;
   line-height: 1.5;
   margin: 1rem 0;
   color: #7c7c7c;
 }
 
-.detailmovie-container .movie_info div .release-date {
-  font-style: italic;
-  margin: 1.5rem 0;
-  color: #7c7c7c;
-}
-
-.detailmovie-container .movie_info div .rating {
-  display: inline;
-  margin: 1.5rem 0;
-}
-
-.detailmovie-container .movie_info div .rating img {
-  height: 20px;
-  width: 20px;
-}
-
-.detailmovie-container .movie_info div .sub_title {
+.detailmovie-container .movie_info .movie-detail-content .sub-title {
   margin: 0.8rem 0;
+  font-weight: 600;
   color: #009688;
 }
 
-.detailmovie-container .movie_info div .eachCast {
+.detailmovie-container .movie_info .movie-detail-content .each-cast {
   margin: 0.5rem;
   line-height: 2;
 }
 
-.detailmovie-container .movie_info .button_contianer {
+.detailmovie-container .movie_info .movie-detail-content .each-cast img {
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+}
+
+.detailmovie-container .movie_info .movie-detail-content .each-cast .mask {
+  height: 20px;
+  width: 20px;
+}
+
+.detailmovie-container .movie_info .button-contianer {
+  margin: 1.5rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -453,7 +476,7 @@ main {
           justify-content: space-between;
 }
 
-.detailmovie-container .movie_info .button_contianer a button {
+.detailmovie-container .movie_info .button-contianer a button {
   cursor: pointer;
   outline: none;
   font-size: 1rem;
@@ -465,7 +488,7 @@ main {
   background-color: #009688;
 }
 
-.detailmovie-container .movie_info .comment_container {
+.detailmovie-container .movie_info .comment-container {
   margin: 3rem 0;
   width: 90%;
   padding: 20px;
@@ -473,7 +496,7 @@ main {
   border-radius: 10px;
 }
 
-.detailmovie-container .movie_info .comment_container form input {
+.detailmovie-container .movie_info .comment-container form input {
   display: block;
   padding: 0.6rem 1rem;
   border: none;
@@ -486,7 +509,7 @@ main {
   background-color: transparent;
 }
 
-.detailmovie-container .movie_info .comment_container form .submit_button {
+.detailmovie-container .movie_info .comment-container form .submit-button {
   padding: 0.5rem 1rem;
   cursor: pointer;
   background-color: #1f1f1f;
@@ -497,17 +520,21 @@ main {
   border-radius: 20px;
 }
 
-.detailmovie-container .movie_info .comment_container .comment-author {
+.detailmovie-container .movie_info .comment-container .each-comment {
+  margin: 1.5rem 0;
+}
+
+.detailmovie-container .movie_info .comment-container .comment-author {
   color: #929191;
 }
 
-.detailmovie-container .movie_info .comment_container .comment-text {
+.detailmovie-container .movie_info .comment-container .comment-text {
   color: #1f1f1f;
 }
 
-.detailmovie-container .movie_info .comment_container span {
+.detailmovie-container .movie_info .comment-container span {
   font-size: 1rem;
-  padding: 1.3rem 0;
+  margin: 1.3rem 0;
   padding-left: 1.5rem;
 }
 

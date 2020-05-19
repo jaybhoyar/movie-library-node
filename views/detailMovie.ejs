@@ -22,34 +22,49 @@
 						<p class="title"><%= movie.title %></p>
 						<p class="creator">🖋<%= movie.creator.name %></p>
 					</div>
-					<div>
+					<div class="movie-detail-content">
 						<!-- Rating -->
-						<% for(let i=0; i< movie.rating; i++ ) { %>
-						<p class="rating">
-							<img src="/images/star-60.png" alt="" />
-						</p>
-						<% }%>
-						<!-- Release Date -->
-						<p class="release-date"><%= movie.releaseDate %></p>
-
+						<div class="rating-date">
+							<div>
+								<% for(let i=0; i< movie.rating; i++ ) { %>
+								<p class="rating">
+									<img src="/images/star-60.png" alt="" />
+								</p>
+								<% }%>
+							</div>
+							<!-- Release Date -->
+							<p class="release-date">
+								<%= moment(movie.releaseDate).format("MMM YYYY")
+								%>
+							</p>
+						</div>
 						<h3>The Synopsis</h3>
 						<p class="synopsis"><%= movie.synopsis %></p>
-
 						<!-- Genre -->
 						<p class="sub_title">Genre:</p>
 						<% movie.genre.forEach( eachGenre => { %>
-						<span class="eachCast">⦿ <%= eachGenre %></span>
+						<span class="each-cast"
+							><img src="/images/state-48.png" alt="" /> <%=
+							eachGenre %></span
+						>
 						<% }) %>
 						<!-- Casts -->
-						<p class="sub_title">Casts:</p>
+						<p class="sub-title">Casts:</p>
 						<% movie.casts.forEach( eachCast => { %>
-						<span class="eachCast">⦿ <%= eachCast %> </span>
+						<span class="each-cast"
+							><img
+								class="mask"
+								src="/images/mask-60.png"
+								alt=""
+							/>
+							<%= eachCast %>
+						</span>
 						<% }) %>
 						<br />
 					</div>
 
 					<% if(currentUser.name === movie.creator.name ) { %>
-					<div class="button_contianer">
+					<div class="button-contianer">
 						<a href="/movies/editMovie/<%= movie.id %>"
 							><button>Edit</button></a
 						>
@@ -59,7 +74,7 @@
 					</div>
 					<% } %>
 
-					<div class="comment_container">
+					<div class="comment-container">
 						<form
 							action="/movies/comments/<%= movie._id %>"
 							method="POST"
@@ -70,14 +85,14 @@
 								placeholder="Add your review here..."
 							/>
 							<input
-								class="submit_button"
+								class="submit-button"
 								type="submit"
 								value="Add Comment"
 							/>
 						</form>
 
 						<% movie.comments.forEach( comment => {%>
-						<div>
+						<div class="each-comment">
 							<span class="comment-author"
 								><%= comment.author.name %></span
 							>
@@ -85,7 +100,6 @@
 								<%= comment.text %></span
 							>
 						</div>
-
 						<%})%>
 					</div>
 				</div>

@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var Movie = require("../models/movie");
 var Comment = require("../models/comments");
+var moment = require("moment");
 var multer = require("multer");
 var path = require("path");
 var fs = require("fs");
@@ -76,7 +77,7 @@ router.get("/:id", (req, res, next) => {
 		})
 		.exec((err, movie) => {
 			if (err) return next(err);
-			res.render("detailMovie.ejs", { movie, currentUser });
+			res.render("detailMovie.ejs", { movie, currentUser, moment });
 		});
 });
 
