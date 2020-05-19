@@ -67,10 +67,15 @@ router.get("/:id", (req, res, next) => {
 	let id = req.params.id;
 	Movie.findById(id)
 		.populate("creator")
-		.populate("comments")
+		.populate({
+			path: "comments",
+			populate: {
+				path: "author",
+				model: "User",
+			},
+		})
 		.exec((err, movie) => {
 			if (err) return next(err);
-
 			res.render("detailMovie.ejs", { movie, currentUser });
 		});
 });

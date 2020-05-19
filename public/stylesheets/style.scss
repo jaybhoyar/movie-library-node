@@ -129,6 +129,7 @@ table {
 	border-spacing: 0;
 }
 // Custom CSS ------------------
+$base-color: #009688;
 html {
 	font-size: 16px;
 }
@@ -140,21 +141,21 @@ a {
 }
 .negative {
 	background-color: #fff;
-	color: #009688;
-	border: 1px solid #009688;
+	color: $base-color;
+	border: 1px solid $base-color;
 }
 .positive {
 	color: #fff;
-	// border: 2px solid #009688;
-	background-color: #009688;
+	// border: 2px solid $base-color;
+	background-color: $base-color;
 	border: none;
 }
 .header_container {
 	width: 100%;
-	position: fixed;
-	top: 0;
+	// position: fixed;
+	// top: 0;
 	overflow: hidden;
-	border-bottom: 2px solid #009688;
+	border-bottom: 2px solid $base-color;
 	background-color: #ffffff;
 	.icons_container {
 		width: 90%;
@@ -186,7 +187,7 @@ a {
 }
 main {
 	overflow: hidden;
-	margin-top: 5rem;
+	margin-top: 2rem;
 }
 
 .display_container {
@@ -201,7 +202,7 @@ main {
 			width: 20%;
 			margin: 1rem 2rem;
 			.container {
-				color: #009688;
+				color: $base-color;
 				font-size: 0;
 				border: none;
 				padding-bottom: 20px;
@@ -244,7 +245,7 @@ main {
 	}
 	.container {
 		padding: 1rem;
-		border: 4px solid #009688;
+		border: 4px solid $base-color;
 		border-radius: 1.5rem;
 		display: flex;
 		form {
@@ -274,12 +275,12 @@ main {
 		width: 250px;
 	}
 	input:focus {
-		border-bottom: 1.5px solid #009688;
+		border-bottom: 1.5px solid $base-color;
 	}
 	.submit_button {
 		padding: 0.8rem 1.5rem;
 		cursor: pointer;
-		background-color: #009688;
+		background-color: $base-color;
 		width: fit-content;
 		color: #fff;
 		border-radius: 6px;
@@ -288,7 +289,7 @@ main {
 
 .detailmovie-container {
 	display: flex;
-	margin: 5rem;
+	margin: 2rem 5rem;
 	justify-content: space-evenly;
 	.movie_poster {
 		font-size: 0;
@@ -315,12 +316,12 @@ main {
 			.title {
 				font-size: 2rem;
 				text-transform: uppercase;
-				color: #009688;
+				color: $base-color;
 				margin: 2rem 0;
 			}
 		}
 		div {
-      margin-bottom: 3rem;
+			margin-bottom: 3rem;
 			h3 {
 				font-size: 1.1rem;
 				letter-spacing: 1px;
@@ -339,11 +340,16 @@ main {
 				color: rgb(124, 124, 124);
 			}
 			.rating {
+				display: inline;
+				img {
+					height: 20px;
+					width: 20px;
+				}
 				margin: 1.5rem 0;
 			}
 			.sub_title {
 				margin: 0.8rem 0;
-				color: #009688;
+				color: $base-color;
 			}
 			.eachCast {
 				margin: 0.5rem;
@@ -363,7 +369,7 @@ main {
 					border: none;
 					border-radius: 1.5rem;
 					color: rgb(255, 255, 255);
-					background-color: #009688;
+					background-color: $base-color;
 				}
 			}
 		}
@@ -395,8 +401,14 @@ main {
 					border-radius: 20px;
 				}
 			}
-			p {
-				font-size: 1.2rem;
+			.comment-author {
+				color: #929191;
+			}
+			.comment-text {
+				color: #1f1f1f;
+			}
+			span {
+				font-size: 1rem;
 				padding: 1.3rem 0;
 				padding-left: 1.5rem;
 			}
@@ -418,7 +430,7 @@ main {
 	}
 	.login_container {
 		padding: 2.5rem 3rem;
-		border: 4px solid #009688;
+		border: 4px solid $base-color;
 		border-radius: 1.5rem;
 		form {
 			label {
@@ -440,12 +452,12 @@ main {
 				width: 250px;
 			}
 			input:focus {
-				border-bottom: 1.5px solid #009688;
+				border-bottom: 1.5px solid $base-color;
 			}
 			.submit_button {
 				padding: 0.8rem 1.5rem;
 				cursor: pointer;
-				background-color: #009688;
+				background-color: $base-color;
 				width: fit-content;
 				color: #fff;
 				border-radius: 6px;

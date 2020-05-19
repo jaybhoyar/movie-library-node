@@ -23,14 +23,24 @@
 						<p class="creator">🖋<%= movie.creator.name %></p>
 					</div>
 					<div>
+						<!-- Rating -->
+						<% for(let i=0; i< movie.rating; i++ ) { %>
+						<p class="rating">
+							<img src="/images/star-60.png" alt="" />
+						</p>
+						<% }%>
+						<!-- Release Date -->
+						<p class="release-date"><%= movie.releaseDate %></p>
+
 						<h3>The Synopsis</h3>
 						<p class="synopsis"><%= movie.synopsis %></p>
-						<p class="release-date"><%= movie.releaseDate %></p>
-						<p class="rating">☆ <%= movie.rating %></p>
+
+						<!-- Genre -->
 						<p class="sub_title">Genre:</p>
 						<% movie.genre.forEach( eachGenre => { %>
 						<span class="eachCast">⦿ <%= eachGenre %></span>
 						<% }) %>
+						<!-- Casts -->
 						<p class="sub_title">Casts:</p>
 						<% movie.casts.forEach( eachCast => { %>
 						<span class="eachCast">⦿ <%= eachCast %> </span>
@@ -67,8 +77,14 @@
 						</form>
 
 						<% movie.comments.forEach( comment => {%>
-						<span><%= comment.author.name %></span>
-						<p>→ <%= comment.text %></p>
+						<div>
+							<span class="comment-author"
+								><%= comment.author.name %></span
+							>
+							<span class="comment-text">
+								<%= comment.text %></span
+							>
+						</div>
 
 						<%})%>
 					</div>
