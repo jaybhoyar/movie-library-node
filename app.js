@@ -14,11 +14,11 @@ const auth = require("./middlewares/auth");
 mongoose.connect(
 	"mongodb://localhost/moviedatabase",
 	{ useNewUrlParser: true, useUnifiedTopology: true },
-	err => {
+	(err) => {
 		if (err) {
 			console.log(err);
 		}
-		console.log("connected!");
+		console.log("Connected! true");
 	}
 );
 var app = express();
@@ -38,8 +38,8 @@ app.use(
 		resave: false,
 		saveUninitialized: true,
 		store: new MongoStore({
-			mongooseConnection: mongoose.connection
-		})
+			mongooseConnection: mongoose.connection,
+		}),
 	})
 );
 app.use(auth.isUserLogged);
@@ -49,12 +49,12 @@ app.use("/movies", moviesRouter);
 app.use("/user", userRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
 	next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
 	// set locals, only providing error in development
 	res.locals.message = err.message;
 	res.locals.error = req.app.get("env") === "development" ? err : {};
