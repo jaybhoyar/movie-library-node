@@ -7,28 +7,14 @@
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 	</head>
 	<body>
-		<header>
-			<div class="header_container">
-				<div class="icons_container">
-					<img src="/images/movie_night.svg" alt="" />
-					<div>
-						<p><%= userDetail.name %></p>
-						<a href="/movies/logout">logout</a>
-					</div>
-
-					<a href="/movies/new">
-						<button class="">Add Movie</button>
-					</a>
-				</div>
-			</div>
-		</header>
+		<%- include('partials/header.ejs') %>
 		<main>
 			<div class="display_container">
 				<div class="movie_container">
 					<% movies.forEach( movie => { %>
 					<a href="/movies/<%= movie.id %>">
 						<div class="container">
-							<img src="/uploads/<%= movie.img %>" alt="" />
+							<img src="/images/<%= movie.img %>" alt="" />
 							<h2><%= movie.title %></h2>
 						</div>
 					</a>

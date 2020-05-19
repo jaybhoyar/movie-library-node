@@ -129,16 +129,33 @@ table {
 	border-spacing: 0;
 }
 // Custom CSS ------------------
+html {
+	font-size: 16px;
+}
 body {
 	font-family: "Montserrat", sans-serif;
-	font-size: 16px;
 }
 a {
 	text-decoration: none;
 }
+.negative {
+	background-color: #fff;
+	color: #009688;
+	border: 1px solid #009688;
+}
+.positive {
+	color: #fff;
+	// border: 2px solid #009688;
+	background-color: #009688;
+	border: none;
+}
 .header_container {
 	width: 100%;
-	// border-bottom: 2px solid #009688;
+	position: fixed;
+	top: 0;
+	overflow: hidden;
+	border-bottom: 2px solid #009688;
+	background-color: #ffffff;
 	.icons_container {
 		width: 90%;
 		margin: 0 auto;
@@ -150,52 +167,63 @@ a {
 			height: 50px;
 		}
 		a {
-			button {
+			margin-right: 1rem;
+			.cicular_button {
 				cursor: pointer;
 				outline: none;
-				font-size: 14px;
-				padding: 12px 24px;
-				border: none;
+				font-size: 15px;
+				padding: 0.6rem 1.6rem;
 				border-radius: 1.5rem;
-				color: rgb(255, 255, 255);
-				background-color: #009688;
+				transition: all 0.2s ease-out 0s;
+				&:hover {
+					cursor: pointer;
+					transform: translateY(2px);
+					box-shadow: 0px 15px 20px rgba(7, 49, 69, 0.1);
+				}
 			}
 		}
 	}
 }
 main {
-	.display_container {
-		padding: 30px 0;
-		width: 90%;
-		margin: 0 auto;
-		.movie_container {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-evenly;
-			a {
-				width: 21%;
-				.container {
-					color: #009688;
-					font-size: 0;
-					border: none;
-					padding-bottom: 20px;
-					img {
-						box-shadow: 0rem 1rem 3rem rgba(0, 0, 0, 0.171);
-						width: 100%;
-						border-radius: 8px;
-						height: 350px;
-						transition: transform 0.25s
-							cubic-bezier(0.33, 0.04, 0.63, 0.93);
-					}
-					img:hover {
-						transform: scale(1.1);
-					}
-					h2 {
-						margin-top: 30px;
-						text-align: center;
-						font-size: 1.2rem;
-						font-weight: 600;
-					}
+	overflow: hidden;
+	margin-top: 5rem;
+}
+
+.display_container {
+	padding: 30px 0;
+	width: 90%;
+	margin: 0 auto;
+	.movie_container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		a {
+			width: 20%;
+			margin: 1rem 2rem;
+			.container {
+				color: #009688;
+				font-size: 0;
+				border: none;
+				padding-bottom: 20px;
+				img {
+					box-shadow: 0rem 1rem 3rem rgba(0, 0, 0, 0.171);
+					width: 100%;
+					border-radius: 8px;
+          height: 350px;
+          object-fit: initial;
+					transition: transform 0.25s
+						cubic-bezier(0.33, 0.04, 0.63, 0.93);
+				}
+				img:hover {
+					transform: scale(1.1);
+				}
+				h2 {
+          text-transform: capitalize;
+					margin-top: 30px;
+					text-align: center;
+					font-size: 1.2rem;
+          font-weight: 600;
+          letter-spacing:1px;
 				}
 			}
 		}

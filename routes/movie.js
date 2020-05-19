@@ -10,7 +10,7 @@ const auth = require("../middlewares/auth");
 // Movie Poster Upload ---
 const storage = multer.diskStorage({
 	destination: (req, file, callBack) => {
-		callBack(null, path.join(__dirname, "../public/uploads"));
+		callBack(null, path.join(__dirname, "../public/images"));
 	},
 	filename: (req, file, callBack) => {
 		callBack(null, `Poster${file.originalname}`);
@@ -40,8 +40,10 @@ router.get("/logout", (req, res, next) => {
 
 // Create New Movie ----
 router.get("/new", (req, res, next) => {
-	res.render("movieForm.ejs");
+	console.log("in movie form");
+	res.render("movieForm");
 });
+
 router.post("/", upload.single("img"), (req, res, next) => {
 	console.log("Body", req.body);
 	let movieObject = req.body;
