@@ -10,10 +10,16 @@ const userRouter = require("./routes/user");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const auth = require("./middlewares/auth");
+require("dotenv").config();
 
 mongoose.connect(
-	"mongodb://localhost/moviedatabase",
-	{ useNewUrlParser: true, useUnifiedTopology: true },
+	process.env.MONGOURL,
+	{
+		useCreateIndex: true,
+		useNewUrlParser: true,
+		useFindAndModify: false,
+		useUnifiedTopology: true,
+	},
 	(err) => {
 		if (err) {
 			console.log(err);
@@ -62,8 +68,7 @@ app.use(function (err, req, res, next) {
 
 	// render the error page
 	res.status(err.status || 500);
-	console.log(err);
-	res.render("error");
+	res.json(err.message);
 });
 
 module.exports = app;
